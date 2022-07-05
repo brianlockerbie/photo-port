@@ -10,12 +10,12 @@ function ContactForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setFormState({...formState, [e.target.name]: e.target.value })
-    console.log(formState);
-  }
+    if (!errorMessage) {
+      setFormState({ [e.target.name]: e.target.value })
+      console.log('Form', formState);
+    }
+  };
   
-
-
   function handleChange(e) {
     if (e.target.name === 'email') {
         const isValid = validateEmail(e.target.value);
